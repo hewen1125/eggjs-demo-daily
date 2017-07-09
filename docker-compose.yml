@@ -1,7 +1,7 @@
 wenki_eggjs:
-  image: wenki/eggjs
+  image: wenki/eggjs-daily
   ports:
-  - 9999:7001
+  - 80:7001
   restart: always
   privileged: true
   container_name: wenki_eggjs

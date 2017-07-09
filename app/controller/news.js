@@ -12,16 +12,20 @@ module.exports = app => {
 
     * list(ctx) {
       var date = ctx.params.date;
+      var year, month, day;
       if (!date) {
         const now = new Date();
-        date = now.toISOString().slice(0,10).replace(/-/g,"");
+        year = now.getFullYear();
+        month = now.getMonth() + 1;
+        day = now.getDate();
+      } else {
+        year = parseInt(date.substr(0, 4));
+        month = parseInt(date.substr(4, 2));
+        day = parseInt(date.substr(6, 2));
       }
       
-      const year = parseInt(date.substr(0, 4));
-      const month = parseInt(date.substr(4, 2));
-      const day = parseInt(date.substr(6, 2));
-      const nextDate = new Date(year, month-1, day + 2).toISOString().slice(0,10).replace(/-/g,"");
-      const previousDate = new Date(year, month-1, day).toISOString().slice(0,10).replace(/-/g,"");
+      const nextDate = this.dateToString(new Date(year, month-1, day + 1));
+      const previousDate = this.dateToString(new Date(year, month-1, day - 1));
 
       const title = 'patsnap';
       const pageName = 'list';
@@ -34,7 +38,6 @@ module.exports = app => {
       var id = ctx.params.id;
       if (!id || isNaN(parseInt(id))) {
         app.redirect = '/error';
-        return;
       }
 
       const title = 'patsnap';
@@ -45,6 +48,20 @@ module.exports = app => {
       news.body = news.body.replace(/https:\/\/pic/g, "/image?img=https://pic");
       
       yield ctx.render('../view/detail_layout.njk', { title, pageName, news });
+    }
+
+    dateToString(date){
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      if (month < 10) {
+        month = "0" + month;
+      }
+      if (day < 10) {
+        day = "0" + day; 
+      }
+
+      return year + month + day;
     }
   }
   return NewsController;

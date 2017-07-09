@@ -33,3 +33,10 @@ config
 部署指南：
 npm install
 npm run dev
+
+Docker 部署
+// 构建 docker image
+docker build -t wenki/eggjs-daily .
+// 执行
+docker-compose up -d
+
