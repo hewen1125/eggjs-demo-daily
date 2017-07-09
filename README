@@ -1,0 +1,35 @@
+EGGJS 模拟知乎日报首页
+
+编码目录结构
+app
+  -controller
+    --image.js
+    --news.js
+    --error.js
+  -middleware
+    --error_handler.js
+  -public
+    --assets
+    --css
+      --news.css
+    --images
+  -service
+    --news.js
+  -view
+    --pages
+      --latest.njk
+      --list.njk
+      --detail.njk
+    --layout.njk
+  -router.js
+config
+  -config.default.js
+  -plugin.js
+
+
+包含首页、新闻列表、详情页面
+内容均套用知乎日报 API
+
+部署指南：
+npm install
+npm run dev

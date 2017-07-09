@@ -1,0 +1,30 @@
+.top {
+    margin-bottom: 0px;
+}
+
+.top .navbar-brand {
+    font-weight: 500;
+    color: #563d7c;
+}
+
+.top .navbar-nav>.active>a, #top .navbar-nav>.active>a:hover, #top .navbar-nav>li>a:hover {
+    background-color: #f9f9f9;
+    color: #463265;
+}
+
+.top .navbar-toggle .icon-bar {
+    background-color: #563d7c;
+}
+
+.headline img {
+    width: 100%;
+}
+
+.footer {
+    background-color: #2a2730;
+    color: #99979c;
+    margin: 0 auto 0 auto;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    text-align: center;
+}

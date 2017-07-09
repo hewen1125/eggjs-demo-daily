@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="/public/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/public/css/news.css"/>
+        
+        {% for item in news.css %}
+            <link rel="stylesheet" href="{{item}}"/>
+        {% endfor %}
+
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <header class="navbar navbar-static-top top"> 
+            <div class="container"> 
+                <div class="navbar-header"> 
+                    <button aria-controls="bs-navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-navbar" data-toggle="collapse" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                    </button> 
+                    <a href="../" class="navbar-brand">Patsnap 日报</a>
+                </div>
+                <nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;"> 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <a href="/">首页</a> </li>
+                        <li> <a href="/list">新闻列表</a> </li>
+                    </ul>
+                </nav> 
+            </div>
+        </header>
+        
+        {% include "./pages/" + pageName + ".njk" %}
+
+        <footer class="footer">
+            <div class="container"><p>BY 何文奇</p></div>
+        </footer>
+        <script src="/public/assets/js/jquery.min.js"></script>
+        <script src="/public/assets/js/bootstrap.min.js"></script>
+    </body>
+</html>

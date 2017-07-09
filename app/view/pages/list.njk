@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="page-header">
+        <h1><small>{{newsList.date}}</small></h1>
+    </div>
+    
+    {% for item in newsList.stories %}
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading"><a href="/news/{{item.id}}">{{item.title}}</a></h4>
+            </div>
+            <div class="media-right">
+                <a href="#">
+                    <img class="media-object" src="/image?img={{item.images[0]}}" alt="...">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous"><a href="/list/{{previousDate}}"><span aria-hidden="true">&larr;</span> 前一天</a></li>
+            <li class="next"><a href="/list/{{nextDate}}">后一天 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</div>

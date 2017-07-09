@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="page-header">
+        <h1><small>今日热闻</small></h1>
+    </div>
+
+    <div class="row">
+        {% for item in newsList.top_stories %}
+            <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="/image?img={{item.image}}" alt="...">
+                <div class="caption">
+                    <h4><a href="/news/{{item.id}}">{{item.title}}</a></h4>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
